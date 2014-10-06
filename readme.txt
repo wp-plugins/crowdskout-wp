@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily add the Crowdskout analytics suite to all any WordPress site.
+Easily add the Crowdskout analytics suite to any WordPress site.
 
 == Description ==
 
