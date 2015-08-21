@@ -2,16 +2,17 @@
 	class CSKT_Request {
 		public $url;
 		public $topics;
+		public $action;
 
-		const CS_API_URL = 'https://api.crowdskout.com/pages/topics';
-
+		/**
+		 * define vars, merge cats and tags filtering out empty entries
+		 */
 		public function __construct() {
+			$this->action = $GLOBALS['backend'] . "/page/topics";
 			$this->url = get_permalink();
-
 			$tags = explode(',', strip_tags(get_the_tag_list('', ',')));
 			$cats = explode(',', strip_tags(get_the_category_list(',', '', get_the_ID())));
 			$this->topics = array_filter( array_merge( $cats, $tags ) );
-			/** merge cats and tags filtering out empty entries */
 		}
 
 		/**
@@ -20,7 +21,7 @@
 		public function updateTopics()
 		{
 			$this->updatePostMeta(get_the_ID());
-			return $this->makeRequest(self::CS_API_URL, 'PUT');
+			return $this->makeRequest($this->action, 'PUT');
 		}
 
 		/**
@@ -29,7 +30,7 @@
 		public function newTopics()
 		{
 			$this->updatePostMeta(get_the_ID());
-			return $this->makeRequest(self::CS_API_URL, 'POST');
+			return $this->makeRequest($this->action, 'POST');
 		}
 
 		/**
@@ -72,13 +73,9 @@
 				'url' => $this->url,
 				'topics' => $this->topics,
 			));
-
 			/** Send Request to the Crowdskout Database */
-			$cskt_api_host = $crowdskoutUrl;
-			$request = new WP_Http;
-			$result = $request->request($cskt_api_host, array('method' => $type, 'headers' => array('Content-Type' => 'application/json'), 'body' => $cskt_request, 'timeout' => apply_filters( 'http_request_timeout', 1 ), 'blocking' => false));
-
-			return $result;
+			$response = wp_remote_request($crowdskoutUrl, array('method' => $type, 'headers' => array('Content-Type' => 'application/json'), 'body' => $cskt_request));
+			return $response;
 		}
 	}
 

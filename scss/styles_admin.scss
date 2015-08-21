@@ -1,0 +1,64 @@
+.cskt_login {
+  input {
+
+  }
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;
+  }
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+  input[type="submit"] {
+
+  }
+  #submit_response {
+
+  }
+
+  .response_waiting:before {
+    content: 'Please wait...';
+  }
+
+  .response_success:before {
+
+  }
+
+  .response_error:before {
+    content: 'Invalid credentials';
+  }
+}
+
+#cskt_connect {
+  display: none;
+  label {
+
+  }
+  #cskt_accounts {
+
+  }
+  input[type="submit"] {
+
+  }
+}
+
+@media only screen and (max-width: 960px) { // sidebar shrinks
+//  #wpcontent {
+//    .wrap {
+//      transform: translateX(0);
+//    }
+//  }
+}
+
+@media only screen and (max-width: 783px) { // sidebar disapears
+//  #wpcontent {
+//    .wrap {
+//      transform: translateX(0);
+//    }
+//  }
+}
