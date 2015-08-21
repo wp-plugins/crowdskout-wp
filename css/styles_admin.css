@@ -1,0 +1,33 @@
+/* line 5, ../scss/styles_admin.scss */
+.cskt_login ::-webkit-input-placeholder {
+  color: #fff;
+}
+/* line 8, ../scss/styles_admin.scss */
+.cskt_login :-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff;
+}
+/* line 11, ../scss/styles_admin.scss */
+.cskt_login ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff;
+}
+/* line 14, ../scss/styles_admin.scss */
+.cskt_login :-ms-input-placeholder {
+  color: #fff;
+}
+/* line 24, ../scss/styles_admin.scss */
+.cskt_login .response_waiting:before {
+  content: 'Please wait...';
+}
+/* line 32, ../scss/styles_admin.scss */
+.cskt_login .response_error:before {
+  content: 'Invalid credentials';
+}
+
+/* line 37, ../scss/styles_admin.scss */
+#cskt_connect {
+  display: none;
+}
+
+/*# sourceMappingURL=styles_admin.css.map */
